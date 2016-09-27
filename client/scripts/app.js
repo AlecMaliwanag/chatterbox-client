@@ -58,6 +58,11 @@ app.setRoomSelector = function(data) {
   });
   $('#roomSelector').append("<option value='newRoom'>New room...</option>");
   $('.roomInput').hide();
+
+  $('.roomList').empty();
+  this.rooms.forEach(function(room) {
+    $('.roomList').append("<a><li value='" + room + "'>" + room + "</li></a>");
+  });
 };
 
 app.makeRoom = function(room) {

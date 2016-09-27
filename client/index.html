@@ -9,6 +9,8 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/underscore/underscore-min.js"></script>
     <script src="bower_components/backbone/backbone.js"></script>
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet">
     <script>
       // YOU DO NOT NEED TO EDIT THIS CODE
       if (!/(&|\?)username=/.test(window.location.search)) {
@@ -25,7 +27,237 @@
     <script src="scripts/app.js"></script>
   </head>
   <body>
-    <div id="main">
+    <div class="wrapper">
+      <div class="box">
+      <div class="row" id="header">
+        <div class="column col-sm-12">
+          <!-- nav bar/header -->
+          <div  class="navbar navbar-default navbar-fixed-top">
+            <!-- logo and username -->
+            <div class="container-fluid navbar-left">
+              <ul class="nav navbar-nav">
+                <li >
+                  <a href="#"><i class="fa fa-home fa-lg"></i></a>
+                </li>
+                <li>
+                  <a href="#">username</a>
+                </li>
+              </ul>
+            </div>
+            <!-- name -->
+            <div class="nav-center navbar-brand">
+              <h3>logo thing</h3>
+            </div>
+            <!-- search field -->
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+        <div class="row">
+            <!-- sidebar -->
+            <div class="column col-sm-2" id="sidebar">
+              <ul class="nav roomList">
+              </ul>
+            </div
+            <!-- /sidebar -->
+          
+            <!-- main -->
+            <div class="column col-sm-=10" id="main">
+            
+              <!-- room name -->
+              <div class="col-sm-12" id="featured">   
+                <div class="text-muted featuredRoom">
+                Room Name
+                </div> 
+              </div>
+              
+                <div class="padding">
+                    <div id="chats" class="full col-sm-12">
+                        
+                        <!--/stories-->
+                        <div class="row">    
+                          <div class="tweet col-sm-10" id="tweet0">
+                            <h3 class="tweetText"></h3>
+                            <h4><span class="author label label-default"></span></h4>
+                            <h4>
+                              <small class="text-muted">1 hour ago • <a href="#" class="text-muted">Read More</a></small>
+                            </h4>
+                          </div>
+                          <div class="col-sm-2">
+                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/men/86.jpg" class="img-circle"></a>
+                          </div> 
+                        </div>
+                        
+                        <div class="row divider">    
+                           <div class="col-sm-12"><hr></div>
+                        </div>
+                        
+                        <div class="row">    
+                          <div class="tweet col-sm-10" id="tweet1">
+                            <h3 class="tweetText"></h3>
+                            <h4><span class="author label label-default"></span></h4>
+                            <h4>
+                            <small class="text-muted">2 days ago • <a href="#" class="text-muted">Read More</a></small>
+                            </h4>
+                          </div>
+                          <div class="col-sm-2">
+                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/men/19.jpg" class="img-circle"></a>
+                          </div>
+                        </div>
+                        
+                        <div class="row divider">    
+                           <div class="col-sm-12"><hr></div>
+                        </div>
+                        
+                        <div class="row">    
+                          <div class="tweet col-sm-10" id="tweet2">
+                            <h3 class="tweetText"></h3>
+                            <h4><span class="author label label-default"></span></h4>
+                            <h4>
+                            <small class="text-muted">3 days ago • <a href="#" class="text-muted">Read More</a></small>
+                            </h4>
+                          </div>
+                          <div class="col-sm-2">
+                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/women/17.jpg" class="img-circle"></a>
+                          </div>
+                        </div>
+                        
+                        <div class="row divider">    
+                           <div class="col-sm-12"><hr></div>
+                        </div>
+                        
+                        <div class="row">    
+                          <div class="tweet col-sm-10" id="tweet3">
+                            <h3 class="tweetText"></h3>
+                            <h4><span class="author label label-default"></span></h4>
+                            <h4>
+                            <small class="text-muted">4 days ago • <a href="#" class="text-muted">Read More</a></small>
+                            </h4>
+                          </div>
+                          <div class="col-sm-2">
+                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/men/86.jpg" class="img-circle"></a>
+                          </div>
+                        </div>
+                        
+                        <div class="row divider">    
+                           <div class="col-sm-12"><hr></div>
+                        </div>
+                        
+                        <div class="row">    
+                          <div class="tweet col-sm-9" id="tweet4">
+                            <h3 class="tweetText"></h3>
+                            <h4><span class="author label label-default"></span></h4>
+                            <h4>
+                            <small class="text-muted">4 days ago • <a href="#" class="text-muted">Read More</a></small>
+                            </h4>
+                          </div>
+                          <div class="col-sm-3">
+                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/women/17.jpg" class="img-circle"></a>
+                          </div>
+                        </div>
+
+                        <div class="row divider">    
+                           <div class="col-sm-12"><hr></div>
+                        </div>
+
+                        <div class="row">    
+                          <div class="tweet col-sm-9" id="tweet5">
+                            <h3 class="tweetText"></h3>
+                            <h4><span class="author label label-default"></span></h4>
+                            <h4>
+                            <small class="text-muted">4 days ago • <a href="#" class="text-muted">Read More</a></small>
+                            </h4>
+                          </div>
+                          <div class="col-sm-3">
+                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/women/17.jpg" class="img-circle"></a>
+                          </div>
+                        </div>
+
+                        <div class="row divider">    
+                           <div class="col-sm-12"><hr></div>
+                        </div>
+
+                        <div class="row">    
+                          <div class="tweet col-sm-9" id="tweet6">
+                            <h3 class="tweetText"></h3>
+                            <h4><span class="author label label-default"></span></h4>
+                            <h4>
+                            <small class="text-muted">4 days ago • <a href="#" class="text-muted">Read More</a></small>
+                            </h4>
+                          </div>
+                          <div class="col-sm-3">
+                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/women/17.jpg" class="img-circle"></a>
+                          </div>
+                        </div>
+
+                        <div class="row divider">    
+                           <div class="col-sm-12"><hr></div>
+                        </div>
+
+                        <div class="row">    
+                          <div class="tweet col-sm-9" id="tweet7">
+                            <h3 class="tweetText"></h3>
+                            <h4><span class="author label label-default"></span></h4>
+                            <h4>
+                            <small class="text-muted">4 days ago • <a href="#" class="text-muted">Read More</a></small>
+                            </h4>
+                          </div>
+                          <div class="col-sm-3">
+                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/women/17.jpg" class="img-circle"></a>
+                          </div>
+                        </div>
+
+                        <div class="row divider">    
+                           <div class="col-sm-12"><hr></div>
+                        </div>
+
+                        <div class="row">    
+                          <div class="tweet col-sm-9" id="tweet8">
+                            <h3 class="tweetText"></h3>
+                            <h4><span class="author label label-default"></span></h4>
+                            <h4>
+                            <small class="text-muted">4 days ago • <a href="#" class="text-muted">Read More</a></small>
+                            </h4>
+                          </div>
+                          <div class="col-sm-3">
+                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/women/17.jpg" class="img-circle"></a>
+                          </div>
+                        </div>
+
+                        <div class="row divider">    
+                           <div class="col-sm-12"><hr></div>
+                        </div>
+                        
+                        <div class="row">    
+                          <div class="tweet col-sm-9" id="tweet9">
+                            <h3 class="tweetText"></h3>
+                            <h4><span class="author label label-default"></span></h4>
+                            <h4>
+                            <small class="text-muted">4 days ago • <a href="#" class="text-muted">Read More</a></small>
+                            </h4>
+                          </div>
+                          <div class="col-sm-3">
+                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/women/17.jpg" class="img-circle"></a>
+                          </div>
+                        </div>
+                        
+                    </div><!-- /col-9 -->
+                </div><!-- /padding -->
+            </div>
+            <!-- /main -->
+        </div>
+      </div>
+    </div>
+    <!-- script references -->
+    <script src="js/bootstrap.min.js"></script>
+    
+
+<!--     <div id="main">
       <h1>chatterbox</h1>
       <form action="#" method="post" id="form">
         <div class='container'>
@@ -37,12 +269,9 @@
         <input type="text" name="message" placeholder="message here">
         <button onclick="app.newPost()" type="reset">Submit</button> 
       </form>
-      <!-- Your HTML goes here! -->
     </div>
-    <div id="chats">
-      
+    <div id="chats">   
     </div>
-
     <script>
       $(document).ready(function() {
         for (var i = 0; i < 10; i++) {
@@ -50,6 +279,8 @@
             "<div class='author'></div><div class='tweetText'></div>" + "</div><br>");
         }
       });
-    </script>
+    </script> -->
+
+
   </body>
 </html>
