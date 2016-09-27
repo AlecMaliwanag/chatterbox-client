@@ -28,17 +28,28 @@
     <div id="main">
       <h1>chatterbox</h1>
       <form action="#" method="post" id="form">
-        <label for="roomSelector">room:</label>
-        <select id="roomSelector" name="roomSelector">
-          <option value = "lobby">lobby</option>
-        </select>
+        <div class='container'>
+          <label for="roomSelector">room:</label>
+          <select id="roomSelector" name="roomSelector" onchange="app.makeRoom(this.value)">
+          </select>
+          <input type="text" name="roomInput" class="roomInput" placeholder="Room name here">
+        </div>
         <input type="text" name="message" placeholder="message here">
-        <button onclick="newPost()" type="reset">Submit</button> 
+        <button onclick="app.newPost()" type="reset">Submit</button> 
       </form>
       <!-- Your HTML goes here! -->
     </div>
     <div id="chats">
       
     </div>
+
+    <script>
+      $(document).ready(function() {
+        for (var i = 0; i < 10; i++) {
+          $('#chats').append("<div class='tweet' id='tweet" + i + "'>" + 
+            "<div class='author'></div><div class='tweetText'></div>" + "</div><br>");
+        }
+      });
+    </script>
   </body>
 </html>
