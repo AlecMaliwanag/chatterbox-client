@@ -3,6 +3,7 @@ var app = {};
 
 app.rooms = new Set();
 
+//================================initialize and rerender callout ==============================//
 app.init = function() {
   $.ajax({
     // This is the url you should use to communicate with the parse API server.
@@ -22,6 +23,7 @@ app.init = function() {
   });
 };
 
+//=============================parses and displays tweeets ===================================//
 app.displayTweets = function(data) {
   var index = 0;
   data.results.forEach(function(tweet) {
@@ -40,6 +42,7 @@ app.displayTweets = function(data) {
   });
 };
 
+//========================= all methods that deal with Rooms =================================//
 app.setRoomSelector = function(data) {
   data.results.forEach(function(tweet) {
     if (tweet.roomname) {
@@ -61,11 +64,17 @@ app.makeRoom = function(room) {
   if (room === 'newRoom') {
     $('.roomInput').show();
   } else {
+    app.filterRoom();
     $('.roomInput').hide();
   }
 
 };
 
+app.filterRoom = function() {
+
+};
+
+//============================posting methods ==================================================//
 app.newPost = function () {
   var form = document.getElementById('form');
   var message = {};
@@ -98,4 +107,5 @@ app.postMessage = function(message) {
   });
 };
 
+//initialize app
 app.init();
