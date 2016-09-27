@@ -27,8 +27,18 @@
   <body>
     <div id="main">
       <h1>chatterbox</h1>
+      <form action="#" method="post" id="form">
+        <label for="roomSelector">room:</label>
+        <select id="roomSelector" name="roomSelector">
+          <option value = "lobby">lobby</option>
+        </select>
+        <input type="text" name="message" placeholder="message here">
+        <button onclick="newPost()" type="reset">Submit</button> 
+      </form>
       <!-- Your HTML goes here! -->
     </div>
-    <div id="chats"></div>
+    <div id="chats">
+      
+    </div>
   </body>
 </html>
