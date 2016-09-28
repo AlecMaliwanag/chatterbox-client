@@ -346,12 +346,15 @@ small.text-muted {
 
 #logoName {
     padding-top: 10px;
+    font-family: Monoton;
+    margin-top: -20px;
 }
 
 
 #logo {
     margin-top: -10px;
 }
+
 
 #featured {
   position: fixed;
