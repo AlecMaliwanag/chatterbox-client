@@ -139,8 +139,12 @@ a {
     *zoom:1;
 }
 
-.column .padding {
+.column {
     padding: 20px;
+}
+
+.padding {
+    padding: 30px;
 }
 
 .box {
@@ -168,12 +172,26 @@ a {
 }
 
 #sidebar {
-  background-color: #e6ffe6;
+  background-color: #cce2df;
   top: 0;
   bottom: 0;
   left: 0;
   display: block;
   z-index: 1;
+  color: #fff;
+  font-weight: 200;
+  background-size: cover;
+  background-position: center center;
+
+}
+
+#sidebar2 {
+  background-color: #cce2df;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  z-index: 1000;
   color: #fff;
   font-weight: 200;
   background-size: cover;
@@ -191,6 +209,8 @@ a {
   margin: 5px 0px;
   opacity: .86;
   border-radius: 4px;
+  text-align: right;
+  padding-right: 30px
 }
 #sidebar .nav li:active {
     background-color: rgba(5, 233, 127, 0.35);
@@ -301,16 +321,42 @@ small.text-muted {
 
 .navbar {
   margin-bottom: 0;
+  background: linear-gradient(120deg, #cec0a9, #cec0a9);
 }
 
 #header {
-  height: 50px;
+  height: 75px;
+}
+
+#navMain {
+    height: 75px;
+}
+
+#navPadding {
+    padding: 12px 15px;
+}
+
+.nav-brand {
+    padding-bottom: 10px;
+}
+
+#userIdDisplay {
+    font-size: 25px;
+}
+
+#logoName {
+    padding-top: 10px;
+}
+
+
+#logo {
+    margin-top: -10px;
 }
 
 #featured {
   position: fixed;
-  background-color: #fff;
   z-index: 999;
+  background: linear-gradient(90deg, #f2f0ed, #fff);
 }
 
 .featureBar {
@@ -335,4 +381,12 @@ small.text-muted {
 
 #postIcon {
     display: inline-block;
+}
+
+#main {
+    background: linear-gradient(90deg, #f2f0ed, #fff);
+}
+
+#roomLabel {
+    font-size: 20px;
 }

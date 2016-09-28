@@ -2,9 +2,10 @@
 var app = {};
 
 app.rooms = new Set();
-
+app.username;
 //================================initialize and rerender callout ==============================//
 app.init = function() {
+  app.username = window.location.search.match(/\?username([^\?])*/)[0].split('=')[1];
   $('#roomLabel').text('Tweet Feed');
   app.fetch();
 };
@@ -115,7 +116,7 @@ app.filterUser = function(userLink) {
 app.newPost = function () {
   var form = document.getElementById('form');
   var message = {};
-  message.username = window.location.search.match(/\?username([^\?])*/)[0].split('=')[1];
+  message.username = app.username;
   message.text = form.message.value;
   if (form.roomSelector.value === 'newRoom') {
     message.roomname = form.roomInput.value;
@@ -147,4 +148,5 @@ app.postMessage = function(message) {
 //initialize app
 $(document).ready(function() {
   app.init();
+  $('#userIdDisplay').text(app.username);
 });
