@@ -5,6 +5,11 @@ app.rooms = new Set();
 
 //================================initialize and rerender callout ==============================//
 app.init = function() {
+  $('#roomLabel').text('Tweet Feed');
+  app.fetch();
+};
+
+app.fetch = function() {
   $.ajax({
     // This is the url you should use to communicate with the parse API server.
     url: 'https://api.parse.com/1/classes/messages',
@@ -15,6 +20,24 @@ app.init = function() {
       console.log('chatterbox: Message received', data);
       app.displayTweets(data);
       app.setRoomSelector(data);
+    },
+    error: function (data) {
+      // See: https://developer.mozilla.org/en-US/docs/Web/API/console.error
+      console.error('chatterbox: Failed to get message', data);
+    }
+  });
+};
+
+app.filterFetch = function (category, filter) {
+  $.ajax({
+    // This is the url you should use to communicate with the parse API server.
+    url: 'https://api.parse.com/1/classes/messages',
+    type: 'GET',
+    data: 'where={' + JSON.stringify(category) + ':{"$regex":' + JSON.stringify(filter) + '}}',
+    contentType: 'application/json',
+    success: function (data) {
+      console.log('chatterbox: Message received', data);
+      app.displayTweets(data);
     },
     error: function (data) {
       // See: https://developer.mozilla.org/en-US/docs/Web/API/console.error
@@ -42,7 +65,7 @@ app.displayTweets = function(data) {
   });
 };
 
-//========================= all methods that deal with Rooms =================================//
+// ========================= all methods that deal with Rooms =================================//
 app.setRoomSelector = function(data) {
   data.results.forEach(function(tweet) {
     if (tweet.roomname) {
@@ -61,7 +84,7 @@ app.setRoomSelector = function(data) {
 
   $('.roomList').empty();
   this.rooms.forEach(function(room) {
-    $('.roomList').append("<a><li value='" + room + "'>" + room + "</li></a>");
+    $('.roomList').append("<li value='" + room + "'>" + "<a href = '#' onclick = 'app.filterRoom(this)'><p>" + room + "</p></a></li>");
   });
 };
 
@@ -69,14 +92,23 @@ app.makeRoom = function(room) {
   if (room === 'newRoom') {
     $('.roomInput').show();
   } else {
-    app.filterRoom();
     $('.roomInput').hide();
   }
 
 };
 
-app.filterRoom = function() {
+app.filterRoom = function(roomLink) {
+  var roomName = roomLink.firstElementChild.innerHTML;
+  app.filterFetch('roomname', roomName);
+  $('#roomLabel').text(roomName);
+};
 
+// ========================= all methods that deal with Users =================================//
+
+app.filterUser = function(userLink) {
+  var userName = userLink.firstElementChild.innerHTML;
+  app.filterFetch('username', userName);
+  $('#roomLabel').text(userName);
 };
 
 //============================posting methods ==================================================//
@@ -103,7 +135,7 @@ app.postMessage = function(message) {
     contentType: 'application/json',
     success: function (data) {
       console.log('chatterbox: Message sent');
-      app.init();
+      app.fetch();
     },
     error: function (data) {
       // See: https://developer.mozilla.org/en-US/docs/Web/API/console.error
@@ -113,4 +145,6 @@ app.postMessage = function(message) {
 };
 
 //initialize app
-app.init();
+$(document).ready(function() {
+  app.init();
+});

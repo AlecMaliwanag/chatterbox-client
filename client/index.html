@@ -27,6 +27,7 @@
     <script src="scripts/app.js"></script>
   </head>
   <body>
+
     <div class="wrapper">
       <div class="box">
       <div class="row" id="header">
@@ -37,7 +38,7 @@
             <div class="container-fluid navbar-left">
               <ul class="nav navbar-nav">
                 <li >
-                  <a href="#"><i class="fa fa-home fa-lg"></i></a>
+                  <a href="#" onclick="app.init()"><i class="fa fa-home fa-lg"></i></a>
                 </li>
                 <li>
                   <a href="#">username</a>
@@ -70,12 +71,45 @@
             <div class="column col-sm-=10" id="main">
             
               <!-- room name -->
-              <div class="col-sm-12" id="featured">   
-                <div class="text-muted featuredRoom">
-                Room Name
+              <div class="col-sm-12" id="featured">
+                <div class="text-muted featureBar" id="roomLabel">
                 </div> 
+                <div class="featureBar">
+                  <a href="#" data-toggle="modal" data-target= "#myModal">
+                    <ul class="nav">  
+                      <li class=" nav">Post</li>
+                      <li><i id="postIcon" class="nav fa fa-paper-plane-o" aria-hidden="true"></i></li>
+                    </ul>
+                  </a>
+                </div>
+
+                <!-- modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">New Post</h4>
+                      </div>
+                      <div class="modal-body">
+                        <form action="#" method="post" id="form">
+                          <div class='container'>
+                            <label for="roomSelector">room:</label>
+                            <select id="roomSelector" name="roomSelector" onchange="app.makeRoom(this.value)">
+                            </select>
+                            <input type="text" name="roomInput" class="roomInput" placeholder="Room name here">
+                          </div>
+                          <input type="text" name="message" placeholder="message here"> 
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-primary" onclick="app.newPost()">telegram !</button>
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
               </div>
-              
+
                 <div class="padding">
                     <div id="chats" class="full col-sm-12">
                         
@@ -83,7 +117,7 @@
                         <div class="row">    
                           <div class="tweet col-sm-10" id="tweet0">
                             <h3 class="tweetText"></h3>
-                            <h4><span class="author label label-default"></span></h4>
+                            <h4><a onclick="app.filterUser(this)"><span class="author label label-default"></span></a></h4>
                             <h4>
                               <small class="text-muted">1 hour ago • <a href="#" class="text-muted">Read More</a></small>
                             </h4>
@@ -100,7 +134,7 @@
                         <div class="row">    
                           <div class="tweet col-sm-10" id="tweet1">
                             <h3 class="tweetText"></h3>
-                            <h4><span class="author label label-default"></span></h4>
+                            <h4><a onclick="app.filterUser(this)"><span class="author label label-default"></span></a></h4>
                             <h4>
                             <small class="text-muted">2 days ago • <a href="#" class="text-muted">Read More</a></small>
                             </h4>
@@ -117,7 +151,7 @@
                         <div class="row">    
                           <div class="tweet col-sm-10" id="tweet2">
                             <h3 class="tweetText"></h3>
-                            <h4><span class="author label label-default"></span></h4>
+                            <h4><a onclick="app.filterUser(this)"><span class="author label label-default"></span></a></h4>
                             <h4>
                             <small class="text-muted">3 days ago • <a href="#" class="text-muted">Read More</a></small>
                             </h4>
@@ -134,7 +168,7 @@
                         <div class="row">    
                           <div class="tweet col-sm-10" id="tweet3">
                             <h3 class="tweetText"></h3>
-                            <h4><span class="author label label-default"></span></h4>
+                            <h4><a onclick="app.filterUser(this)"><span class="author label label-default"></span></a></h4>
                             <h4>
                             <small class="text-muted">4 days ago • <a href="#" class="text-muted">Read More</a></small>
                             </h4>
@@ -151,7 +185,7 @@
                         <div class="row">    
                           <div class="tweet col-sm-9" id="tweet4">
                             <h3 class="tweetText"></h3>
-                            <h4><span class="author label label-default"></span></h4>
+                            <h4><a onclick="app.filterUser(this)"><span class="author label label-default"></span></a></h4>
                             <h4>
                             <small class="text-muted">4 days ago • <a href="#" class="text-muted">Read More</a></small>
                             </h4>
@@ -168,7 +202,7 @@
                         <div class="row">    
                           <div class="tweet col-sm-9" id="tweet5">
                             <h3 class="tweetText"></h3>
-                            <h4><span class="author label label-default"></span></h4>
+                            <h4><a onclick="app.filterUser(this)"><span class="author label label-default"></span></a></h4>
                             <h4>
                             <small class="text-muted">4 days ago • <a href="#" class="text-muted">Read More</a></small>
                             </h4>
@@ -185,7 +219,7 @@
                         <div class="row">    
                           <div class="tweet col-sm-9" id="tweet6">
                             <h3 class="tweetText"></h3>
-                            <h4><span class="author label label-default"></span></h4>
+                            <h4><a onclick="app.filterUser(this)"><span class="author label label-default"></span></a></h4>
                             <h4>
                             <small class="text-muted">4 days ago • <a href="#" class="text-muted">Read More</a></small>
                             </h4>
@@ -202,7 +236,7 @@
                         <div class="row">    
                           <div class="tweet col-sm-9" id="tweet7">
                             <h3 class="tweetText"></h3>
-                            <h4><span class="author label label-default"></span></h4>
+                            <h4><a onclick="app.filterUser(this)"><span class="author label label-default"></span></a></h4>
                             <h4>
                             <small class="text-muted">4 days ago • <a href="#" class="text-muted">Read More</a></small>
                             </h4>
@@ -219,7 +253,7 @@
                         <div class="row">    
                           <div class="tweet col-sm-9" id="tweet8">
                             <h3 class="tweetText"></h3>
-                            <h4><span class="author label label-default"></span></h4>
+                            <h4><a onclick="app.filterUser(this)"><span class="author label label-default"></span></a></h4>
                             <h4>
                             <small class="text-muted">4 days ago • <a href="#" class="text-muted">Read More</a></small>
                             </h4>
@@ -236,7 +270,7 @@
                         <div class="row">    
                           <div class="tweet col-sm-9" id="tweet9">
                             <h3 class="tweetText"></h3>
-                            <h4><span class="author label label-default"></span></h4>
+                            <h4><a onclick="app.filterUser(this)"><span class="author label label-default"></span></a></h4>
                             <h4>
                             <small class="text-muted">4 days ago • <a href="#" class="text-muted">Read More</a></small>
                             </h4>
@@ -253,8 +287,9 @@
         </div>
       </div>
     </div>
+    
     <!-- script references -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
     
 
 <!--     <div id="main">

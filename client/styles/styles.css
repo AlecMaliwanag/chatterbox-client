@@ -169,9 +169,51 @@ a {
 
 #sidebar {
   background-color: #e6ffe6;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  z-index: 1;
+  color: #fff;
+  font-weight: 200;
+  background-size: cover;
+  background-position: center center;
+
 }
 
-#sidebar a {
+#sidebar .nav {
+  margin-top: 20px;
+  position: absolute;
+  width: 100%;
+}
+#sidebar .nav li > a {
+  color: #808080;
+  margin: 5px 0px;
+  opacity: .86;
+  border-radius: 4px;
+}
+#sidebar .nav li:active {
+    background-color: rgba(5, 233, 127, 0.35);
+}
+#sidebar .nav li:hover > a {
+  background-color: rgba(5, 233, 127, 0.35);
+  opacity: 1;
+}
+#sidebar .nav li.active > a {
+  color: #808080;
+  opacity: 1;
+  background-color: rgba(5, 233, 127, 0.35);
+}
+#sidebar .nav p {
+  margin: 0;
+  line-height: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: 
+}
+
+/*#sidebar a {
     color:#ccc;
     background-color:transparent;
 }
@@ -194,7 +236,7 @@ a {
 }
 #footer {
   margin-bottom:20px;
-}
+}*/
 
 /* center and adjust the sidebar contents on smaller devices */
 @media (max-width: 768px) {
@@ -271,8 +313,26 @@ small.text-muted {
   z-index: 999;
 }
 
-.featuredRoom {
+.featureBar {
+    display: inline-block;
     margin-left: 2%;
     padding-top: 1%;
 }
 
+.featureBar ul {
+    display: inline-block;
+    width: 200px;
+}
+.featureBar ul li {
+    display: inline-block;
+    width: 30px;
+}
+
+#myModal {
+    z-index: 2000;
+    padding-top: 100px;
+}
+
+#postIcon {
+    display: inline-block;
+}
